@@ -30,12 +30,14 @@
 
         $sqlGravar = "
             INSERT INTO tarefas
-            (nome, descricao, prioridade)
+            (nome, descricao, prazo, prioridade, concluida)
             VALUES
             (
                 '{$tarefa['nome']}',
                 '{$tarefa['descricao']}',
-                {$tarefa['prioridade']}
+                '{$tarefa['prazo']}',
+                {$tarefa['prioridade']},
+                {$tarefa['concluida']}
             )
             
         ";

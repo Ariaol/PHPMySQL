@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Tarefa</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Nova Tarefa</h1>
-    <form>
+<form>
         <fieldset>
             <legend>Nova Tarefa</legend>
             <label>
                 tarefa:
                 <input type="text" name="nome">
             </label>
-            <label for=>
+            <label>
                 Descrição (Opcional):
                 <textarea name="descricao"></textarea>
             </label>
@@ -37,30 +36,5 @@
             <input type="submit" value="Cadastrar">
         </fieldset>
     </form>
-    <table>
-        <tr>
-            <th>Tarefas</th>
-            <th>Descrição</th>
-            <th>Prazo</th>
-            <th>Prioridade</th>
-            <th>Concluída</th>
-            <th>Opções</th>
-        </tr>
-
-        <?php foreach($lista_tarefas as $tarefa) : ?>
-            <tr>
-                <td><?php echo $tarefa['nome']; ?></td>
-                <td><?php echo $tarefa['descricao']; ?></td>
-                <td><?php echo data_exibir($tarefa['prazo']); ?></td>
-                <td><?php echo traduz_prioridade($tarefa['prioridade']); ?></td>
-                <td><?php echo traduz_concluida($tarefa['concluida']); ?></td>
-                <td>
-                    <a href="editar.php?id=<?php echo $tarefa['id']; ?>">
-                        Editar
-                    </a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
 </body>
 </html>
