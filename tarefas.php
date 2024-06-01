@@ -2,6 +2,9 @@
 
 session_start();
 
+require "banco.php";
+require "ajudantes.php";
+
 if (array_key_exists('nome', $_GET) && $_GET['nome'] !='') {
      
      $tarefa = [];
@@ -28,13 +31,9 @@ if (array_key_exists('nome', $_GET) && $_GET['nome'] !='') {
           $tarefa['concluida'] = '';
      }
 
-     $_SESSION['lista_tarefas'][] = $tarefa;
+     gravar_tarefa($conexao, $tarefa);
 }
 
- $lista_tarefas = [];
+ $lista_tarefas = buscar_tarefas($conexao);
 
-if (array_key_exists('lista_tarefas', $_SESSION)) {
-    $lista_tarefas = $_SESSION['lista_tarefas'];
- }
-
- include "template.php";
+ require "template.php";
